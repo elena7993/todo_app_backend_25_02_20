@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-# Create your views here.
+
+class Me(APIView):
+    def get(self, req):
+        user = req.user
+
+        return Response(
+            {
+                "ok": "잘됨!",
+            }
+        )
